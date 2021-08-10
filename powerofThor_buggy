@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int LX; // the IX position of the light of power
+    int LY; // the IY position of the light of power
+    int IX; // Thor's starting IX position
+    int IY; // Thor's starting IY position
+
+    cin >> LX >> LY >> IX >> IY; cin.ignore();
+    
+    int tX, tY;
+    tX = IX;
+    tY =  IY;
+    string dir;
+
+    // game loop
+    while (1) {
+        int rt; // The remaining amount of turns Thor can move. Do not remove this line.
+        cin >> rt; cin.ignore();
+ 
+        if      ((tX > IX) && (tY > IY)){  tX -= 1; tY -= 1; dir = "NW";} 
+        else if ((tX > IX) && (tY < IY)){  tX -= 1; tY += 1; dir = "SW";} 
+        else if ((tX < IX) && (tY < IY)){  tX += 1; tY += 1; dir = "SE";}
+        else if ((tX < IX) && (tY > IY)){  tX += 1; tY -= 1; dir = "NE";}
+        else if ((tY < IY)){ dir = "S"; tY += 1;}
+        else if ((tY > IY)){ dir = "N"; tY -= 1;}
+        else if ((tX < IX)){ dir = "E"; tY += 1;}
+        else if ((tX > IX)){ dir = "W"; tY -= 1;}
+
+       cout << dir << endl;
+    }
+        
+}
+       
+       //output of this file is blank which I can't understand 
+       // If you can fix it PLease try.
